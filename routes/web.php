@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +21,12 @@ use App\Http\Controllers\LoginController;
 //     return view('blog/index');
 // });
 
+// BLOG
 Route::get('/blog/{id}', [BlogController::class, 'show']);
 
-Route::resource('/blog', BlogController::class);
+// Route::resource('/blog', BlogController::class);
 
 Route::get('/', [BlogController::class,'index']);
-
-
 
 
 // Route::get('/', function () {
@@ -45,13 +45,15 @@ Route::get('/contact', function () {
     return view('blog/contact/contact');
 });
 
-// Route::get('/admin', function () {
-//     return view('admin/index');
-// });
-
-Route::get('/login', function () {
-    return view('admin/login');
+Route::get('/admin/dashboard', function () {
+    return view('admin/index');
 });
+// ---------------------------------------------------
+// Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
+
+// Route::get('/login', function () {
+//     return view('admin/login');
+// });
 
 Route::get('/register', function () {
     return view('admin/register');
@@ -63,7 +65,7 @@ Route::get('/forgot_password', function () {
 
 // Route::get('admin', PostController::class)->middleware('auth');
 
-Route::get('/admin', [PostController::class,'index'])->middleware('auth');
+Route::get('/admin', [DashboardController::class,'index'])->middleware('auth');
 
 Route::resource('admin/posts', PostController::class)->middleware('auth');
 

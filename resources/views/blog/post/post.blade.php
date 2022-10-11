@@ -12,7 +12,7 @@
                             
                                                         <span class="meta">
                                 Posted by
-                                <a href="#!">Julls</a>
+                                <a href="#!">LeoG07</a>
                                 on October 04, 2022
                             </span>
                         </div>
@@ -29,7 +29,7 @@
                             <br>
                             <?php } ?>
                             Placeholder text by
-                            <a href="http://spaceipsum.com/">Julls Berita-man</a>
+                            <a href="http://spaceipsum.com/">LeoG07 Berita-man</a>
                             &middot; Images by
                             <a href="https://pict.sindonews.net/size/640/salsabila/slider/2022/08/17697/ilmuwan-umumkan-dugong-telah-punah-di-china-wxb.jpg">Del Esshole on The Commons</a>
                         </p>

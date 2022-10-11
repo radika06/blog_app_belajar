@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{url ('admin')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -66,7 +66,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url ('admin/posts')}}">Daftar Artikel</a>
-                        <a class="collapse-item" href="cards.html">Edit Artikel</a>
+                        <a class="collapse-item" href="{{ url('/admin')}}">Admin</a>
                     </div>
                 </div>
             </li>
