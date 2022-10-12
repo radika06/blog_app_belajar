@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -16,24 +17,37 @@ class LoginController extends Controller
     {
         // cek form validation
         $this->validate($request, [
+            
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
         // cek apakah email dan password benar
-        if (auth()->attempt(request(['email', 'password']))) {
+        if (auth()->attempt(request([ 'email', 'password']))) {
+            $users = DB::table('users') 
+            ->where ('email', $request-> input ('email'))
+            ->get();
+            foreach ($users as $row) {
+                $name = $row->name;
+                }
+             $request->session()->put('name', $name);
+            
             return redirect('admin');
         }
 
         // jika salah, kembali ke halaman login
         return redirect()->back()->with('error', 'Email atau Password salah');
+
+
     }
 
     // fungsi logout
-    public function logout()
+    public function logout(Request $request)
     {
         auth()->logout();
-
+    $request->session()->flush();
         return redirect()->route('login');
     }
+
+
 }

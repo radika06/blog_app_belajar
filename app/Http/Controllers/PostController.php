@@ -39,6 +39,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'user_id' => 'required',
             'title' => 'required',
             'content' => 'required',
         ]);
@@ -46,7 +47,7 @@ class PostController extends Controller
         Post::create($request->all());
 
         return redirect()->route('posts.index')
-                        ->with('success','Post created successfully.');
+                        ->with('success','Pembuatan Post Berhasil!!!');
     }
 
     /**
