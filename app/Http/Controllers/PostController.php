@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::latest()->paginate(5);
 
-        return view('posts.index',compact('posts'))
+        return view('admin.posts.index',compact('posts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('admin.posts.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show',compact('post'));
+        return view('admin.posts.show',compact('post'));
     }
 
     /**
@@ -68,7 +68,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit',compact('post'));
+        return view('admin.posts.edit',compact('post'));
     }
 
     /**

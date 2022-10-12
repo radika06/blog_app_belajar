@@ -22,32 +22,25 @@ use App\Http\Controllers\DashboardController;
 // });
 
 // BLOG
+Route::get('/', [BlogController::class,'index']);
 Route::get('/blog/{id}', [BlogController::class, 'show']);
+Route::get('/about', function () 
+{return view('blog/about/about');});
+Route::get('/post', function () 
+	{return view('blog/post/post');});
+Route::get('/contact', function () 
+	{return view('blog/contact/contact');});
 
 // Route::resource('/blog', BlogController::class);
-
-Route::get('/', [BlogController::class,'index']);
-
 
 // Route::get('/', function () {
 //     return view('blog/index');
 // });
 
-Route::get('/about', function () {
-    return view('blog/about/about');
-});
+// Route::get('/admin/dashboard', function () {
+//     return view('admin/index');
+// });
 
-Route::get('/post', function () {
-    return view('blog/post/post');
-});
-
-Route::get('/contact', function () {
-    return view('blog/contact/contact');
-});
-
-Route::get('/admin/dashboard', function () {
-    return view('admin/index');
-});
 // ---------------------------------------------------
 // Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 
