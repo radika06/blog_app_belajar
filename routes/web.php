@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,5 @@ Route::resource('admin/posts', PostController::class)->middleware('auth');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'login'])->name('login.proses')->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('register', [RegisterController::class, 'register'])->name('register');
+Route::post('register', [RegisterController::class, 'register_action'])->name('register.action');
