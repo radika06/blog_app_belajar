@@ -66,11 +66,13 @@
                     <div class="post-preview">
                         <a href="blog/{{ $post->id }}">
                             <h2 class="post-title">{{ $post->title }}</h2>
+                             </a>
+                            <a href="blog/{{ $post->id }}">
                             <h3 class="post-subtitle">{{ $post->content }}</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">LeoG07</a>
+                            <a href="#!">{{ Session::get('name'); }}</a>
                             on October 04, 2022
                         </p>
  <hr class="my-4" />
