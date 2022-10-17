@@ -29,8 +29,10 @@ class LoginController extends Controller
             ->get();
             foreach ($users as $row) {
                 $name = $row->name;
+                $id = $row->id;
                 }
              $request->session()->put('name', $name);
+             $request->session()->put('id', $id);
             
             return redirect('admin');
         }

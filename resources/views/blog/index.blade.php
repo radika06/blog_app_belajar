@@ -72,16 +72,16 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">{{ Session::get('name'); }}</a>
+                            <a href="#!">{{ $post->name }}</a>
                             on October 04, 2022
                         </p>
  <hr class="my-4" />
                     </div>
                     @endforeach              
                     <!-- Divider-->
-                   
+                   {!! $posts->links() !!}
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4">{!! $posts->links() !!} </div>
+                    <div class="d-flex justify-content-end mb-4">asimili</div>
                 </div>
             </div>
         </div>

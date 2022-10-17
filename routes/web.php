@@ -24,7 +24,9 @@ use App\Http\Controllers\RegisterController;
 
 // BLOG
 Route::get('/', [BlogController::class,'index']);
-Route::get('/blog/{id}', [BlogController::class, 'show']);
+Route::get('/test/{id}',  [BlogController::class, 'test']);
+Route::get('/blog/{id}', [BlogController::class, 'show']) ;
+// Route::post('/blog/{id}', [BlogController::class, 'comment'])
 Route::get('/about', function () 
 {return view('blog/about/about');});
 Route::get('/post', function () 
@@ -57,6 +59,9 @@ Route::get('/forgot_password', function () {
     return view('admin/forgot_password');
 });
 
+Route::resource('admin/setting', SettingController::class)->middleware('auth');
+
+
 // Route::get('admin', PostController::class)->middleware('auth');
 
 Route::get('/admin', [DashboardController::class,'index'])->middleware('auth');
@@ -68,3 +73,5 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.proses')->
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('register', [RegisterController::class, 'register'])->name('register');
 Route::post('register', [RegisterController::class, 'register_action'])->name('register.action');
+
+Route::post('comment', [BlogController::class, 'comment'])->name('comment');

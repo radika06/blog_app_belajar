@@ -6,7 +6,7 @@
 <h2>Create New Post</h2> 
 </div> 
 <div class="float-right"> 
-<a class="btn btn-secondary" href="{{ url('admin/posts') }}"> Back</a> 
+<a class="btn btn-secondary" href="{{ url('admin/setting') }}"> Back</a> 
 </div> 
 </div> 
 </div> 
@@ -22,7 +22,7 @@
 </div> 
 @endif 
 
-<form action="{{ route('posts.store') }}" method="POST"> 
+<form action="{{ route('setting.store') }}" method="POST"> 
 @csrf 
 <div class="row"> 
 <div class="col-xs-12 col-sm-12 col-md-12"> 
@@ -36,7 +36,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12"> 
 <div class="form-group"> 
 <strong>Content:</strong> 
-<textarea class="form-control" style="height:10px" name="content" placeholder="Content"></textarea> 
+<textarea class="form-control" style="height:150px" name="content" placeholder="Content"></textarea> 
 </div> 
 </div> 
 <div class="col-xs-12 col-sm-12 col-md-12 text-center"> 
