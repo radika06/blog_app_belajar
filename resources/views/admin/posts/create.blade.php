@@ -30,6 +30,7 @@
 <strong>Title:</strong> 
 <?php $id = Session::get ('id'); ?>
 <input type="text" name="user_id" value="<?=$id?>" hidden> 
+
 <input type="text" name="title" class="form-control" placeholder="Title">
 </div> 
 </div> 

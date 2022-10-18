@@ -18,10 +18,12 @@ class BlogController extends Controller
     public function index()
     {
 
-        $posts = DB::table('posts') 
-            ->join ( 'users' , 'users.id', '=', 'posts.user_id')->latest('posts.created_at')
-            ->paginate(2);
+        $posts = DB::table('users') 
+            ->join ( 'posts' , 'users.id', '=', 'posts.user_id')->latest('posts.created_at')
+            ->paginate(5);
             // ->get();
+
+        
         // $posts = Post::latest()->paginate(2);
         return view('blog.index',compact('posts'));
     }
@@ -46,7 +48,17 @@ class BlogController extends Controller
                 ->where('id', '=', $id)
                 ->get();
         // echo var_dump($users);
-        return view('blog.post.post',compact('posts'));
+
+        // $comments = DB::table('posts')
+        //         ->where('id', '=', $id)
+        //         ->get();
+
+        $comments = DB::table('comment')
+        ->select('*')
+        ->where('post_id', '=', $id)
+        ->get();
+
+        return view('blog.post.post',compact('posts', 'comments', 'post'));
     }
 
    
@@ -55,7 +67,7 @@ class BlogController extends Controller
             $request->validate([
 
                 'name' => 'required',
-                'email' => 'required|unique:users',
+                'email' => 'required',
                 // 'comment' => 'required'
                 // 'post_id' => 'required'
 
@@ -66,11 +78,24 @@ class BlogController extends Controller
                 'email' => $request->email,
                 'comment' => $request->comment,
                 'post_id' => $request->post_id,
+                'created_at' => $request->created_at,
             ]);
         
-            return redirect()->route('blog/'. $request->post_id)->with('success', 'Registrasi Berhasil. Silahkan L ogin!');
+            // return redirect()->route('home')->with('success', 'Komentar Berhasil. Silahkan Cek!!!');
+            return back()->withInput();
 
         }
+
+        // public function showcomment($id)
+        // {
+        // $post = $id;
+
+        // $posts = DB::table('comment')
+        //         ->where('id', '=', $id)
+        //         ->get();
+        // // echo var_dump($users);
+        // return view('blog.post.post',compact('posts'));
+        // }
 
         public function test($id)
         {

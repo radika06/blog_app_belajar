@@ -23,7 +23,7 @@ use App\Http\Controllers\RegisterController;
 // });
 
 // BLOG
-Route::get('/', [BlogController::class,'index']);
+Route::get('/', [BlogController::class,'index'])->name('home');
 Route::get('/test/{id}',  [BlogController::class, 'test']);
 Route::get('/blog/{id}', [BlogController::class, 'show']) ;
 // Route::post('/blog/{id}', [BlogController::class, 'comment'])

@@ -59,8 +59,8 @@
 <!-- <td>{{ $post->title }}</td> 
 <td>{{ $post->content }}</td> 
    -->
-</td> 
-</tr> 
+<!-- </td> 
+</tr>  -->
 
 
                     <div class="post-preview">
@@ -73,7 +73,7 @@
                         <p class="post-meta">
                             Posted by
                             <a href="#!">{{ $post->name }}</a>
-                            on October 04, 2022
+                            {{ $post->created_at }}
                         </p>
  <hr class="my-4" />
                     </div>
