@@ -6,6 +6,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +77,9 @@ Route::get('register', [RegisterController::class, 'register'])->name('register'
 Route::post('register', [RegisterController::class, 'register_action'])->name('register.action');
 
 Route::post('comment', [BlogController::class, 'comment'])->name('comment');
+Route::get('/admin/comment', [CommentController::class, 'index']) ;
+
+Route::get('/image', [ImageController::class,'index'])->name('image.index');
+Route::post('/image', [ImageController::class,'store'])->name('image.store');
+
+Route::post('/admin/posts/create', [PostController::class,'store'])->name('image.store');

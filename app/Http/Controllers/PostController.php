@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Image;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -43,9 +44,17 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
+        
 
         Post::create($request->all());
+         $this->validate($request, [
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+        $image_path = $request->file('image')->store('image', 'public');
 
+        $data = Image::create([
+            'image' => $image_path,
+        ]);
         return redirect()->route('posts.index')
                         ->with('success','Pembuatan Post Berhasil!!!');
     }
